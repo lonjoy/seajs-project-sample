@@ -10,28 +10,28 @@ module.exports = function (grunt) {
         // Task configuration.
         concat: {
             options: {
-                include: 'relative'
+                include: 'all'
             },
             dist: {
                 files: [{
-                    'dist/<%= pkg.name %>.js': 'tmp/<%= pkg.name %>.js',
-                    'dist/<%= pkg.name %>-debug.js': 'tmp/<%= pkg.name %>-debug.js'
-                }, {}]
+                    'demo/dist/main.js': 'demo/tmp/main.js',
+                    'demo/dist/main-debug.js': 'demo/tmp/main-debug.js'
+                }]
             }
         },
 
         transport: {
             options: {
-                idleading: '<%= pkg.family %>/<%= pkg.name %>/<%= pkg.version %>/',
+                idleading: './dist/',
                 debug: true
             },
             dist: {
                 files: [
                     {
-                        cwd: 'lib',
-                        src: '**/*',
+                        cwd: 'demo',
+                        src: '**/*.js',
                         filter: 'isFile',
-                        dest: 'tmp'
+                        dest: 'demo/tmp'
                     }
                 ]
             }
@@ -39,15 +39,15 @@ module.exports = function (grunt) {
 
         uglify: {
             options: {
-                banner: '<%= banner %>'
+                banner: ''
             },
             dist: {
-                src: 'dist/<%= pkg.name %>.js',
-                dest: 'dist/<%= pkg.name %>.js'
+                src: 'demo/dist/main.js',
+                dest: 'demo/dist/main.js'
             }
         },
         clean: {
-            temp: ['tmp']
+            temp: ['demo/tmp']
         }
     });
 
@@ -58,6 +58,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Default task.
-    grunt.registerTask('default', ['transport']);
+    grunt.registerTask('default', ['transport', 'concat', 'uglify', 'clean']);
 
 };
