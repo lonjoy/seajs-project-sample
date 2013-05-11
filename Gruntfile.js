@@ -12,11 +12,21 @@ module.exports = function (grunt) {
             options: {
                 include: 'all'
             },
-            dist: {
-                files: [{
-                    'demo/dist/main.js': 'demo/tmp/main.js',
-                    'demo/dist/main-debug.js': 'demo/tmp/main-debug.js'
-                }]
+            js: {
+                files: [
+                    {
+                        'demo/dist/main.js': 'demo/tmp/main.js',
+                        'demo/dist/main-debug.js': 'demo/tmp/main-debug.js'
+                    }
+                ]
+            },
+            css: {
+                files: [
+                    {
+                        'demo/dist/main.css': 'demo/tmp/main.css',
+                        'demo/dist/main-debug.css': 'demo/tmp/main-debug.css'
+                    }
+                ]
             }
         },
 
@@ -25,11 +35,21 @@ module.exports = function (grunt) {
                 idleading: './dist/',
                 debug: true
             },
-            dist: {
+            js: {
                 files: [
                     {
                         cwd: 'demo',
                         src: '**/*.js',
+                        filter: 'isFile',
+                        dest: 'demo/tmp'
+                    }
+                ]
+            },
+            css: {
+                files: [
+                    {
+                        cwd: 'demo',
+                        src: '**/*.css',
                         filter: 'isFile',
                         dest: 'demo/tmp'
                     }
@@ -41,11 +61,22 @@ module.exports = function (grunt) {
             options: {
                 banner: ''
             },
-            dist: {
+            js: {
                 src: 'demo/dist/main.js',
                 dest: 'demo/dist/main.js'
             }
         },
+
+        cssmin: {
+            options: {
+                expand: true
+            },
+            css: {
+                src: 'demo/dist/main.css',
+                dest: 'demo/dist/main.css'
+            }
+        },
+
         clean: {
             temp: ['demo/tmp']
         }
@@ -55,9 +86,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-cmd-concat');
     grunt.loadNpmTasks('grunt-cmd-transport');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Default task.
-    grunt.registerTask('default', ['transport', 'concat', 'uglify', 'clean']);
+    grunt.registerTask('default', ['transport', 'concat', 'uglify', 'cssmin', 'clean']);
 
 };
