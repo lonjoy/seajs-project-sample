@@ -1,2 +1,2 @@
-grunt-init-mmp
+seajs-project-sample
 ==============
