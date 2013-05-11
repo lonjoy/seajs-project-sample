@@ -1,0 +1,43 @@
+{
+    "family": "marketing",
+    "name": "slider",
+    "version": "1.0.0",
+    "description": "基于 zepto 的轮播组件",
+    "main": "index.js",
+    "scripts": {
+        "test": "grunt test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/pushiming/sea-module-marketing-slider.git"
+    },
+    "keywords": [
+        "slider",
+        "mobile"
+    ],
+    "author": {
+        "name": "曹纯",
+        "email": "caochun.cr@taobao.com"
+    },
+    "contributors": [
+        "法海 <fahai@taobao.com>"
+    ],
+    "license": "MIT",
+    "readmeFilename": "README.md",
+    "gitHead": "f7ed6d29b06911e5e7b495bb67e2fa1c2e69f0d6",
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-cmd-concat": "~0.2.2",
+        "grunt-cmd-transport": "~0.2.3",
+        "grunt-contrib-uglify": "~0.2.0",
+        "grunt-contrib-clean": "~0.4.1"
+    },
+    "spm": {
+        "alias": {
+            "zepto": "marketing/zepto/1.0.0/zepto"
+        },
+        "devAlias": {
+            "seajs": "seajs/seajs/2.0.0/sea"
+        }
+    }
+}
