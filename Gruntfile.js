@@ -1,6 +1,6 @@
 /*global module:false*/
 module.exports = function (grunt) {
-    
+
     // Project configuration.
     grunt.initConfig({
 
@@ -78,7 +78,8 @@ module.exports = function (grunt) {
         },
 
         clean: {
-            temp: ['demo/tmp']
+            temp: ['demo/tmp'],
+            dist: ['demo/dist']
         }
     });
 
@@ -90,6 +91,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
 
     // Default task.
-    grunt.registerTask('default', ['transport', 'concat', 'uglify', 'cssmin', 'clean']);
+    grunt.registerTask('default', [
+        'clean:dist',
+        'transport',
+        'concat',
+        'uglify',
+        'cssmin',
+        'clean:temp'
+    ]);
 
 };

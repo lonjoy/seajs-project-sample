@@ -1,6 +1,4 @@
-/*! define ./dist/main-debug.css */
-/*! block dist/lib/base-debug.css */
-/*! block ../sea-modules/alice/base/1.0.1/base-debug.css */
+/*! define alice/base/1.0.1/base-debug.css */
 /* alice.base 样式模块 */
 
 @charset "utf-8";
@@ -177,52 +175,4 @@ body .fn-hide {
 /* chrome 下字体过小的问题 */
 .fn-webkit-adjust {
     -webkit-text-size-adjust: none;
-}
-/*! endblock ../sea-modules/alice/base/1.0.1/base-debug.css */
-
-body {
-    background-color: #eee;
-}
-/*! endblock dist/lib/base-debug.css */
-
-.slider-big-outer {
-    height: 100px;
-    overflow: hidden;
-    position: relative;
-}
-
-.slider-big-wrap {
-    position: absolute;
-}
-
-.slider-big-wrap li {
-    float: left;
-    width: 300px;
-    height: 100px;
-    background: #e4e4e4;
-}
-
-.slider-big {
-    width: 300px;
-    height: 150px;
-    margin: 10px auto;
-    position: relative;
-}
-
-.slider-footer {
-    height: 24px;
-    margin-top: 8px;
-}
-
-.prev, .next {
-    border: 1px #ccc solid;
-    padding: 2px 6px;
-}
-
-.next {
-    float: right;
-}
-
-.none {
-    display: none
 }
